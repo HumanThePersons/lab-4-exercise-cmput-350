@@ -72,10 +72,9 @@ int main() {
     // Convolve row major array
 
     timer.restart();
-    // each axis only needs to go to the 4th from the end, which is 252
-    for (int arr_z = 0; arr_z < 253; arr_z++) {
-        for (int arr_y = 0; arr_y < 253; arr_y++) {
-            for (int arr_x = 0; arr_x < 253; arr_x++) {
+    for (int arr_z = 0; arr_z < 64; arr_z++) {
+        for (int arr_y = 0; arr_y < 64; arr_y++) {
+            for (int arr_x = 0; arr_x < 64; arr_x++) {
                 // for each box:
                 int kernelIndex = 0;
                 uint64_t boxSum = 0;
@@ -98,7 +97,7 @@ int main() {
     uint64_t blockSum = 0;
 
     timer.restart();
-    for (uint64_t i = 0; i < SIZE; i++) {
+    for (uint64_t i = 0; i < SIZE_CONV; i++) {
         // just iterate over each value of array
         blockSum = 0;
         for (uint64_t j = 0; j < 64; j++) {

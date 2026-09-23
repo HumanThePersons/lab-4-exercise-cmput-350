@@ -1,0 +1,14 @@
+Results:
+
+Run 1:
+Time for row major : 13298
+Time for morton : 10535
+
+Run 2:
+Time for row major : 16576
+Time for morton : 12437
+
+Since convolution on morton array uses a double nested loop instead of needing 6 nested loops, it is
+naturally going to be able to run faster. Plus, since convolution is working with arrays of different sizes,
+some of the simplicity of being able to just reference all of the data contiguously in a row major array
+is lost.
