@@ -1,0 +1,23 @@
+Programs output over three runs:
+
+First run:
+row major : 10254 347898375840389362
+col major : 11063 347898375840389362
+Difference in time : 809 microseconds
+
+Second run:
+row major : 9831 347898375840389362
+col major : 11016 347898375840389362
+Difference in time : 1185 microseconds
+
+Third run:
+row major : 9475 347898375840389362
+col major : 10720 347898375840389362
+Difference in time : 1245 microseconds
+
+Summing over the values in col major order is consistently a little bit more time consuming than summing
+in row major order. I believe this is because since we are representing a 2D array using a 1D array, row major
+order happens to also be the order that the data is stored contiguously in memory. Column major order does
+not reference the data in order of how it is stored in memory, but instead the computer has to jump across rows
+which may take a little bit longer than iterating in row major order, which accesses the data sequentially as 
+it is stored in memory.
